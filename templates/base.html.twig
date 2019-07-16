@@ -3,10 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <!-- BOOTSTRAP CORE CSS -->
+            <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
+            <!-- ION ICONS STYLES -->
+            <link href="{{ asset('assets/css/ionicons.css') }}" rel="stylesheet" />
+            <!-- FONT AWESOME ICONS STYLES -->
+            <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+            <!-- FANCYBOX POPUP STYLES -->
+            <link href="{{ asset('assets/js/source/jquery.fancybox.css') }}" rel="stylesheet" />
+            <!-- STYLES FOR VIEWPORT ANIMATION -->
+            <link href="{{ asset('assets/css/animations.min.css') }}" rel="stylesheet" />
+            <!-- CUSTOM CSS -->
+            <link href="{{ asset('assets/css/style-blue.css') }}" rel="stylesheet" />
+
+        {% endblock %}
     </head>
     <body>
+    <div data-spy="scroll" data-target="#menu-section">
+        {% include 'inc/_nav.html.twig' %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% include 'inc/_footer.html.twig' %}
+    </div>
+        {% block javascripts %}
+            <script src="assets/js/jquery-1.11.1.js"></script>
+            <!-- BOOTSTRAP SCRIPTS -->
+            <script src="assets/js/bootstrap.js"></script>
+            <!-- EASING SCROLL SCRIPTS PLUGIN -->
+            <script src="assets/js/vegas/jquery.vegas.min.js"></script>
+            <!-- VEGAS SLIDESHOW SCRIPTS -->
+            <script src="assets/js/jquery.easing.min.js"></script>
+            <!-- FANCYBOX PLUGIN -->
+            <script src="assets/js/source/jquery.fancybox.js"></script>
+            <!-- ISOTOPE SCRIPTS -->
+            <script src="assets/js/jquery.isotope.js"></script>
+            <!-- VIEWPORT ANIMATION SCRIPTS   -->
+            <script src="assets/js/appear.min.js"></script>
+            <script src="assets/js/animations.min.js"></script>
+            <!-- CUSTOM SCRIPTS -->
+            <script src="assets/js/custom.js"></script>
+        {% endblock %}
     </body>
 </html>
