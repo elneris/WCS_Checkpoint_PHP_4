@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ticket;
 use App\Form\TicketType;
 use App\Repository\TicketRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,19 +29,26 @@ class TicketController extends AbstractController
     /**
      * @Route("/new", name="ticket_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EventRepository $eventRepository): Response
     {
         $ticket = new Ticket();
         $form = $this->createForm(TicketType::class, $ticket);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->getdata()->getEvent()->getPlace() > 0 ){
+                $ticket->getEvent()->setPlace($ticket->getEvent()->getPlace()-1);
+                $ticket->setTicketNumber($ticket->getEvent()->getPlace());
+                $ticket->setValide(false);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($ticket);
+                $entityManager->flush();
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($ticket);
-            $entityManager->flush();
+                $this->addFlash('success', 'Billet bien acheter, vérifier vos mails !');
+            } else {
+                $this->addFlash('danger', 'date complete');
+            }
 
-            return $this->redirectToRoute('ticket_index');
         }
 
         return $this->render('ticket/new.html.twig', [

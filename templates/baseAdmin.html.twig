@@ -19,6 +19,7 @@
 {% include 'inc/_sidebar.html.twig' %}
 {% endif %}
 <div class="main-panel">
+    {% if app.user.roles.0 is defined %}
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
             <div class="navbar-wrapper">
@@ -38,6 +39,7 @@
             </button>
         </div>
     </nav>
+    {% endif %}
     <br>
     <br>
     <br>
