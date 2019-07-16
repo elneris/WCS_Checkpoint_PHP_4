@@ -6,6 +6,7 @@ use App\Entity\Ticket;
 use App\Form\TicketType;
 use App\Repository\TicketRepository;
 use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -89,21 +90,20 @@ class TicketController extends AbstractController
     /**
      * @Route("/{id}/edit", name="ticket_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Ticket $ticket): Response
+    public function edit(int $id, Request $request, TicketRepository $ticketRepository, EntityManagerInterface $em)
     {
-        $form = $this->createForm(TicketType::class, $ticket);
-        $form->handleRequest($request);
+        $ticket = $ticketRepository->findOneBy(['id' => $id]);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('ticket_index');
+        if (!$ticket->getValide()) {
+            $ticket->setValide(1);
+            $em->flush();
+            $this->addFlash('success', 'Billet validé');
+        } else {
+            $this->addFlash('danger', 'Billet déjà validé');
         }
 
-        return $this->render('ticket/edit.html.twig', [
-            'ticket' => $ticket,
-            'form' => $form->createView(),
-        ]);
+
+        return $this->redirectToRoute('admin');
     }
 
     /**

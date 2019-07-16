@@ -33,7 +33,7 @@
                 <td>{{ ticket.valide ? 'Déjà utilisé' : 'Non utilisé' }}</td>
 
                 <td>
-                    <a href="">activer</a>
+                    <a href="{{ path('ticket_edit', {'id':ticket.id}) }}">activer</a>
                 </td>
             </tr>
         {% else %}
