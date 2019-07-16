@@ -36,6 +36,12 @@ class Ticket
      */
     private $valide;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="tickets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $event;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +91,18 @@ class Ticket
     public function setValide(bool $valide): self
     {
         $this->valide = $valide;
+
+        return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }

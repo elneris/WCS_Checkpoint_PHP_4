@@ -1,0 +1,95 @@
+<div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('assets/admin/img/sidebar-1.jpg') }}">
+    <div class="logo">
+        <a href="{{ path('app_login') }}" class="simple-text logo-mini">
+
+        </a>
+        <a href="{{ path('app_login') }}" class="simple-text logo-normal">
+        </a>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item active ">
+                <a class="nav-link" href="{{ path('admin') }}">
+                    <i class="material-icons">dashboard</i>
+                    <p> Tableau de bord </p>
+                </a>
+            </li>
+            <li class="nav-item active ">
+                <a class="nav-link" href="{{ path('app_logout') }}">
+                    <i class="material-icons">logout</i>
+                    <p> Déconnexion </p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#classe">
+                    <i class="material-icons">image</i>
+                    <p> Evénements
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="classe">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('event_index') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-eye"></i> </span>
+                                <span class="sidebar-normal"> Toutes les évenements </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('event_new') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-plus"></i> </span>
+                                <span class="sidebar-normal"> Ajouter </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#eleves">
+                    <i class="material-icons">image</i>
+                    <p> Tickets
+                        <b class="caret"></b>
+                    </p>
+                </a>
+
+                <div class="collapse" id="eleves">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('ticket_index') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-eye"></i> </span>
+                                <span class="sidebar-normal"> Voir tout les ticket </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#question">
+                    <i class="material-icons">image</i>
+                    <p> Artistes
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="question">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('artist_index') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-eye"></i> </span>
+                                <span class="sidebar-normal"> Toutes les artites </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('artist_new') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-plus"></i> </span>
+                                <span class="sidebar-normal"> Ajouter </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
