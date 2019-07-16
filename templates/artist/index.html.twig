@@ -3,39 +3,35 @@
 {% block title %}Artist index{% endblock %}
 
 {% block body %}
-    <h1>Artist index</h1>
+    <h1>Liste des membres de la troupe Wild Circus</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Avatar</th>
+                <th>Nom</th>
                 <th>Description</th>
-                <th>Job</th>
+                <th>Métier du cirque</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for artist in artists %}
             <tr>
-                <td>{{ artist.id }}</td>
                 <td>{{ artist.name }}</td>
-                <td>{{ artist.avatar }}</td>
                 <td>{{ artist.description }}</td>
                 <td>{{ artist.job }}</td>
                 <td>
-                    <a href="{{ path('artist_show', {'id': artist.id}) }}">show</a>
-                    <a href="{{ path('artist_edit', {'id': artist.id}) }}">edit</a>
+                    <a href="{{ path('artist_show', {'id': artist.id}) }}">Voir</a>
+                    <a href="{{ path('artist_edit', {'id': artist.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun membre</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('artist_new') }}">Create new</a>
+    <a class="btn btn-warning" href="{{ path('artist_new') }}">Ajouter</a>
 {% endblock %}

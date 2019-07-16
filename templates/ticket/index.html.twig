@@ -3,39 +3,34 @@
 {% block title %}Ticket index{% endblock %}
 
 {% block body %}
-    <h1>Ticket index</h1>
+    <h1>Liste des ticket pré-réserver</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>TicketNumber</th>
-                <th>Email</th>
-                <th>Name</th>
-                <th>Valide</th>
+                <th>Email du réservateur</th>
+                <th>Nom</th>
+                <th>Ticket Validé</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for ticket in tickets %}
             <tr>
-                <td>{{ ticket.id }}</td>
                 <td>{{ ticket.ticketNumber }}</td>
                 <td>{{ ticket.email }}</td>
                 <td>{{ ticket.name }}</td>
-                <td>{{ ticket.valide ? 'Yes' : 'No' }}</td>
+                <td>{{ ticket.valide ? 'Oui' : 'Non' }}</td>
                 <td>
-                    <a href="{{ path('ticket_show', {'id': ticket.id}) }}">show</a>
-                    <a href="{{ path('ticket_edit', {'id': ticket.id}) }}">edit</a>
+                    <a href="{{ path('ticket_show', {'id': ticket.id}) }}">voir</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun ticket</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('ticket_new') }}">Create new</a>
 {% endblock %}

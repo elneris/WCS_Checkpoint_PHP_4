@@ -1,11 +1,11 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Artist{% endblock %}
+{% block title %}Ajout artiste{% endblock %}
 
 {% block body %}
-    <h1>Create new Artist</h1>
+    <h1>Ajout Artiste</h1>
 
     {{ include('artist/_form.html.twig') }}
 
-    <a href="{{ path('artist_index') }}">back to list</a>
+    <a class="btn btn-danger" href="{{ path('artist_index') }}">retour</a>
 {% endblock %}

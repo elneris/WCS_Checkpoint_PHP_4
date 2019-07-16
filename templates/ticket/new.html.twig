@@ -1,11 +1,11 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Ticket{% endblock %}
+{% block title %}Réserver ticket{% endblock %}
 
 {% block body %}
-    <h1>Create new Ticket</h1>
+    <h1>Réservation de votre ticket</h1>
 
     {{ include('ticket/_form.html.twig') }}
 
-    <a href="{{ path('home') }}">retour au site</a>
+    <a class="btn" href="{{ path('home') }}">retour au site</a>
 {% endblock %}

@@ -3,16 +3,12 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1>Evenement</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
+                <th>Ville</th>
                 <td>{{ event.city }}</td>
             </tr>
             <tr>
@@ -20,15 +16,15 @@
                 <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Place</th>
+                <th>Nb. Place</th>
                 <td>{{ event.place }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('event_index') }}">back to list</a>
+    <a class="btn" href="{{ path('event_index') }}">Retour</a>
 
-    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+    <a class="btn" href="{{ path('event_edit', {'id': event.id}) }}">Editer</a>
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}
