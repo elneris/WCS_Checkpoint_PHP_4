@@ -3,5 +3,44 @@
 {% block title %}Admin{% endblock %}
 
 {% block body %}
+    {{ form_start(form) }}
+    {{ form_end(form) }}
 
+    <h1>Liste des Tickets</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Identifiant du billet</th>
+            <th>Ville</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Nom</th>
+            <th>Type de billet</th>
+            <th>Etat du ticket</th>
+            <th>Confirmer le ticket</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.ticketNumber }}</td>
+                <td>{{ ticket.event.city }}</td>
+                <td>{{ ticket.event.date ? ticket.event.date|date('Y-m-d') : '' }}</td>
+                <td>{{ ticket.email }}</td>
+                <td>{{ ticket.name }}</td>
+                <td>{{ ticket.category }}</td>
+                <td>{{ ticket.valide ? 'Déjà utilisé' : 'Non utilisé' }}</td>
+
+                <td>
+                    <a href="">activer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun ticket trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

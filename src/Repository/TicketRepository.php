@@ -19,32 +19,32 @@ class TicketRepository extends ServiceEntityRepository
         parent::__construct($registry, Ticket::class);
     }
 
-    // /**
-    //  * @return Ticket[] Returns an array of Ticket objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function myFilter($filters)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('t');
 
-    /*
-    public function findOneBySomeField($value): ?Ticket
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        if ($filters['search'] || $filters['date']) {
+            $qb->join('t.event', 'event');
+        }
+
+        if ($filters['date']) {
+            $qb->andWhere('event = :date')
+               ->setParameter('date', $filters['date']);
+        }
+
+        if ($filters['valide']) {
+            $qb->andWhere('t.valide = :valide')
+                ->setParameter('valide', $filters['valide']);
+        }
+
+        if ($filters['search']) {
+            $qb->orHaving('t.ticketNumber LIKE :val')
+               ->orHaving('t.email LIKE :val')
+               ->orHaving('t.name LIKE :val')
+               ->orHaving('t.category LIKE :val')
+               ->setParameter('val', '%' . $filters['search'] . '%');
+        }
+
+        return $qb->getQuery()->getResult();
     }
-    */
 }
