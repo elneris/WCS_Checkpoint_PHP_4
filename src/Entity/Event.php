@@ -114,4 +114,9 @@ class Event
 
         return $this;
     }
+    public function getDateString()
+    {
+        $format = 'd/m/Y';
+        return $this->date->format($format);
+    }
 }

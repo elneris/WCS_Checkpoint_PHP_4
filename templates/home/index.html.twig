@@ -1,154 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Index{% endblock %}
 
 {% block body %}
 
         <div id="home">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 ">
-                        <div id="carousel-slider" data-ride="carousel" class="carousel slide  animate-in"
-                             data-anim-type="fade-in-up">
-
-                            <div class="carousel-inner">
-                                <div class="item active">
-
-                                    <h3>
-                                        Consectetur adipiscing elit felis dolor felis dolor vitae
-                                    </h3>
-                                    <p>
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit.
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit.
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <h3>
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit
-                                    </h3>
-                                    <p>
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit.
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit
-                                        Lorem ipsumdolor sitamet, consect adipiscing elit.
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
                 <div class="row animate-in" data-anim-type="fade-in-up">
                     <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
 
 
-                        <p>
-                            This line is fixed so you can write anything
+                        <h1>
+                            Bienvenue sur le Wild Circus
+                        </h1>
 
-                        </p>
                         <div class="social">
                             <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-facebook "></i></a>
                             <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-google-plus "></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-linkedin "></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-pinterest "></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-github "></i></a>
+                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-instagram "></i></a>
                         </div>
-                        <a href="#services" class=" btn button-custom btn-custom-two">See Service List </a>
+                        <a href="#services" class=" btn button-custom btn-custom-two">Voir toutes les dates</a>
                     </div>
                 </div>
             </div>
 
         </div>
-        <!--HOME SECTION END-->
-        <!--SERVICE SECTION START-->
+
         <section id="services">
             <div class="container">
                 <div class="row text-center header">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in" data-anim-type="fade-in-up">
-                        <h3>Our Services</h3>
+                        <h3>Our Event</h3>
                         <hr/>
                     </div>
                 </div>
                 <div class="row animate-in" data-anim-type="fade-in-up">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-document"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-scissors"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-clipboard"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
+                    {% for event in events %}
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="services-wrapper">
                             <i class="ion-calendar"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+                            <h3>{{ event.city }}</h3>
+                            <h4>Date : {{ event.getdatestring }}</h4>
+                            <h4>Place restantes : {{ event.place }}</h4>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-erlenmeyer-flask"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-monitor"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-pinpoint"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-tshirt-outline"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <i class="ion-speedometer"></i>
-                            <h3>Consectetur tellus nec</h3>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -158,7 +54,7 @@
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h3>Pricing Options</h3>
+                        <h3>Prix des places</h3>
                         <hr/>
                     </div>
                 </div>
@@ -168,448 +64,181 @@
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <div class="light-pricing">
                                     <div class="price">
-                                        <sup>$</sup>99
-                                        <small>per day</small>
+                                        20<sup>€</sup>
+                                        <small>par personne</small>
+                                    </div>
+                                    <div class="type">
+                                        CATEGORY 2
+                                    </div>
+
+                                    <div class="pricing-footer">
+
+                                        <a href="#" class="btn button-custom btn-custom-one">RESERVER</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <div class="light-pricing">
+                                    <div class="price">
+                                        30<sup>€</sup>
+                                        <small>par personne</small>
+                                    </div>
+                                    <div class="type">
+                                        CATEGORY 1
+                                    </div>
+
+                                    <div class="pricing-footer">
+
+                                        <a href="#" class="btn button-custom btn-custom-one">RESERVER</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <div class="light-pricing">
+                                    <div class="price">
+                                        50<sup>€</sup>
+                                        <small>par personne</small>
                                     </div>
                                     <div class="type">
                                         BASIC
                                     </div>
-                                    <ul>
 
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
                                     <div class="pricing-footer">
 
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <div class="light-pricing popular">
-                                    <div class="price">
-                                        <sup>$</sup>199
-                                        <small>per month</small>
-                                    </div>
-                                    <div class="type">
-                                        MEDIUM
-                                    </div>
-                                    <ul>
-
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
-                                    <div class="pricing-footer">
-
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
+                                        <a href="#" class="btn button-custom btn-custom-one">RESERVER</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <div class="light-pricing">
                                     <div class="price">
-                                        <sup>$</sup>249
-                                        <small>per yer</small>
+                                        80<sup>€</sup>
+                                        <small>par personne</small>
                                     </div>
                                     <div class="type">
-                                        ADVANCE
+                                        VIP
                                     </div>
-                                    <ul>
 
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
                                     <div class="pricing-footer">
 
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
+                                        <a href="#" class="btn button-custom btn-custom-one">RESERVER</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <div class="light-pricing">
-                                    <div class="price">
-                                        <sup>$</sup>599
-                                        <small>one time</small>
-                                    </div>
-                                    <div class="type">
-                                        EXTENDED
-                                    </div>
-                                    <ul>
-
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
-                                    <div class="pricing-footer">
-
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row animate-in" data-anim-type="fade-in-up">
-                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                        <div class="row db-padding-btm db-attached">
-
-                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                <div class="light-pricing ">
-                                    <div class="price">
-                                        <sup>$</sup>99
-                                        <small>per day</small>
-                                    </div>
-                                    <div class="type">
-                                        SMALL
-                                    </div>
-                                    <ul>
-
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
-                                    <div class="pricing-footer">
-
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                <div class="light-pricing popular">
-                                    <div class="price">
-                                        <sup>$</sup>159
-                                        <small>per month</small>
-                                    </div>
-                                    <div class="type">
-                                        MEDIUM
-                                    </div>
-                                    <ul>
-
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
-                                    <div class="pricing-footer">
-
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                <div class="light-pricing">
-                                    <div class="price">
-                                        <sup>$</sup>799
-                                        <small>per month</small>
-                                    </div>
-                                    <div class="type">
-                                        ADVANCE
-                                    </div>
-                                    <ul>
-
-                                        <li><i class="glyphicon glyphicon-print"></i>30+ Accounts</li>
-                                        <li><i class="glyphicon glyphicon-time"></i>150+ Projects</li>
-                                        <li><i class="glyphicon glyphicon-trash"></i>Lead Required</li>
-                                    </ul>
-                                    <div class="pricing-footer">
-
-                                        <a href="#" class="btn button-custom btn-custom-one">BOOK ORDER</a>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--PRIICING SECTION END-->
-        <!--WORK SECTION START-->
+
         <section id="work">
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h3>Our Works</h3>
+                        <h3>NOS PERFORMANCES</h3>
                         <hr/>
                     </div>
                 </div>
                 <div class="row text-center animate-in" data-anim-type="fade-in-up">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-bottom">
                         <div class="caegories">
-                            <a href="#" data-filter="*" class="active btn btn-custom btn-custom-two btn-sm">All</a>
-                            <a href="#" data-filter=".html" class="btn btn-custom btn-custom-two btn-sm">HTML</a>
-                            <a href="#" data-filter=".css" class="btn btn-custom btn-custom-two btn-sm">CSS</a>
-                            <a href="#" data-filter=".code" class="btn btn-custom btn-custom-two btn-sm">CODE</a>
-                            <a href="#" data-filter=".script" class="btn btn-custom btn-custom-two btn-sm">SCRIPT</a>
+                            <a href="#" data-filter="*" class="active btn btn-custom btn-custom-two btn-sm">TOUTES</a>
+                            <a href="#" data-filter=".volt" class="btn btn-custom btn-custom-two btn-sm">VOLTIGE</a>
+                            <a href="#" data-filter=".domp" class="btn btn-custom btn-custom-two btn-sm">DOMPTEUR</a>
                         </div>
                     </div>
                 </div>
                 <div class="row text-center animate-in" data-anim-type="fade-in-up" id="work-div">
 
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 volt">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/1.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/1.jpg">
 
                                 <img src="assets/img/portfolio/1.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
-
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html css">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html domp">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/2.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/2.jpg">
 
                                 <img src="assets/img/portfolio/2.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
 
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 code script">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 code volt">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/3.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/3.jpg">
 
                                 <img src="assets/img/portfolio/3.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
 
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html script">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/4.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/4.jpg">
 
                                 <img src="assets/img/portfolio/4.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
 
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html code">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/5.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/5.jpg">
 
                                 <img src="assets/img/portfolio/5.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
 
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 script">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 domp">
                         <div class="work-wrapper">
 
-                            <a class="fancybox-media" title="Image Title Goes Here" href="assets/img/portfolio/6.jpg">
+                            <a class="fancybox-media" href="assets/img/portfolio/6.jpg">
 
                                 <img src="assets/img/portfolio/6.jpg" class="img-responsive img-rounded" alt=""/>
                             </a>
 
-                            <h4>Morbi mollis lectus et ipsum</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--WORK SECTION END-->
-        <!--TEAM SECTION START-->
+
         <section id="team">
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h3>Team Members </h3>
+                        <h3>Membres de la troupe </h3>
                         <hr/>
                     </div>
                 </div>
                 <div class="row animate-in" data-anim-type="fade-in-up">
 
+                    {% for artist in artists %}
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                         <div class="team-wrapper">
-                            <div class="team-inner" style="background-image: url('assets/img/team/1.jpg')">
-                                <a href="#" target="_blank"> <i class="fa fa-twitter"></i></a>
+                            <div class="team-inner" style="background-image: url('{{ artist.avatar }}')">
+
                             </div>
                             <div class="description">
-                                <h3> Leomarid Jona</h3>
-                                <h5><strong> Developer & Designer </strong></h5>
+                                <h3>{{ artist.name }}</h3>
+                                <h5><strong>{{ artist.job }}</strong></h5>
                                 <p>
-                                    Pellentesque elementum dapibus convallis.
-                                    Vivamus eget finibus massa.
+                                    {{ artist.description }}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="team-wrapper">
-                            <div class="team-inner" style="background-image: url('assets/img/team/2.jpg')">
-                                <a href="#" target="_blank"> <i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="description">
-                                <h3> Leomarid Jona</h3>
-                                <h5><strong> Developer & Designer </strong></h5>
-                                <p>
-                                    Pellentesque elementum dapibus convallis.
-                                    Vivamus eget finibus massa.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="team-wrapper">
-                            <div class="team-inner" style="background-image: url('assets/img/team/3.jpg')">
-                                <a href="#" target="_blank"> <i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="description">
-                                <h3> Leomarid Jona</h3>
-                                <h5><strong> Developer & Designer </strong></h5>
-                                <p>
-                                    Pellentesque elementum dapibus convallis.
-                                    Vivamus eget finibus massa.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="team-wrapper">
-                            <div class="team-inner" style="background-image: url('assets/img/team/4.jpg')">
-                                <a href="#" target="_blank"> <i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="description">
-                                <h3> Leomarid Jona</h3>
-                                <h5><strong> Developer & Designer </strong></h5>
-                                <p>
-                                    Pellentesque elementum dapibus convallis.
-                                    Vivamus eget finibus massa.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--TEAM SECTION END-->
-        <!--GRID SECTION START-->
-        <section id="grid">
-            <div class="container">
-                <div class="row text-center header animate-in" data-anim-type="fade-in-up">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                        <h3>Grid Overview </h3>
-                        <hr/>
-
-                    </div>
-                </div>
-                <div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <h2>1/4 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <h2>1/4 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <h2>1/4 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <h2>1/4 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                </div>
-                <div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <h2>1/3 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <h2>1/3 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <h2>1/3 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-
-                </div>
-                <div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <h2>1/2 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <h2>1/2 Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-
-
-                </div>
-                <div class="row animate-in" data-anim-type="fade-in-up">
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h2>Full Section</h2>
-                        <p>
-                            Morbi mollis lectus et ipsum sollicitudin varius.
-                            Aliquam tempus ante placerat,
-                            consectetur tellus nec, porttitor nulla.
-                        </p>
-
-                    </div>
-
-
+                    {% endfor %}
                 </div>
             </div>
         </section>
