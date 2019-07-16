@@ -29,7 +29,7 @@ class TicketController extends AbstractController
     /**
      * @Route("/new", name="ticket_new", methods={"GET","POST"})
      */
-    public function new(Request $request, EventRepository $eventRepository): Response
+    public function new(Request $request, \Swift_Mailer $mailer, \Twig_Environment $twig, TicketRepository $repository): Response
     {
         $ticket = new Ticket();
         $form = $this->createForm(TicketType::class, $ticket);
@@ -38,11 +38,30 @@ class TicketController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->getdata()->getEvent()->getPlace() > 0 ){
                 $ticket->getEvent()->setPlace($ticket->getEvent()->getPlace()-1);
-                $ticket->setTicketNumber($ticket->getEvent()->getPlace());
+
+                $tickets = $repository->findBy(['event' => $ticket->getEvent()]);
+
+                $ticket->setTicketNumber($ticket->getEvent()->getCity() . (count($tickets)+1));
                 $ticket->setValide(false);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($ticket);
                 $entityManager->flush();
+
+                $message = (new \Swift_Message('Vos billets'))
+                    ->setFrom('wildcircus@gmail.com')
+                    ->setTo($ticket->getEmail());
+
+                $message->setBody(
+                    $twig->render(
+                        'emails/ticket.html.twig',
+                        [
+                            'ticket' => $ticket,
+                            'event' => $ticket->getEvent()
+                        ]
+                    ),
+                    'text/html'
+                );
+                $mailer->send($message);
 
                 $this->addFlash('success', 'Billet bien acheter, vérifier vos mails !');
             } else {
