@@ -10,18 +10,19 @@
                     <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
                         <h1>{{ website.title }}</h1>
                         <div class="social">
-                            <a href="{{ website.facebook }}" class="btn button-custom btn-custom-one"><i class="fa fa-facebook "></i></a>
-                            <a href="{{ website.twitter }}" class="btn button-custom btn-custom-one"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ website.instagram }}" class="btn button-custom btn-custom-one"><i class="fa fa-instagram "></i></a>
+                            {% if website.facebook is not null %}<a href="{{ website.facebook }}" class="btn button-custom btn-custom-one"><i class="fa fa-facebook "></i></a>{% endif %}
+                            {% if website.twitter is not null %}<a href="{{ website.twitter }}" class="btn button-custom btn-custom-one"><i class="fa fa-twitter"></i></a>{% endif %}
+                            {% if website.instagram is not null %}<a href="{{ website.instagram }}" class="btn button-custom btn-custom-one"><i class="fa fa-instagram "></i></a>{% endif %}
                         </div>
-                        <a href="#services" class=" btn button-custom btn-custom-two">Voir toutes les dates</a>
+                        {% if events | length > 0 %}<a href="#services" class=" btn button-custom btn-custom-two">Voir toutes les dates</a>{% endif %}
                     </div>
                 </div>
             </div>
         </div>
-
+    {% if events | length > 0 %}
         <section id="services">
             <div class="container">
+
                 <div class="row text-center header">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in" data-anim-type="fade-in-up">
                         <h3>Nos futurs évenement</h3>
@@ -44,7 +45,8 @@
                 </div>
             </div>
         </section>
-
+    {% endif %}
+    {% if prices | length > 0 %}
         <section id="pricing">
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -77,7 +79,8 @@
                 </div>
             </div>
         </section>
-
+    {% endif %}
+    {% if pictures | length > 0 %}
         <section id="work">
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -109,7 +112,8 @@
                 </div>
             </div>
         </section>
-
+    {% endif %}
+    {% if artists | length > 0 %}
         <section id="team">
             <div class="container">
                 <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -139,5 +143,5 @@
                 </div>
             </div>
         </section>
-
+    {% endif %}
 {% endblock %}
