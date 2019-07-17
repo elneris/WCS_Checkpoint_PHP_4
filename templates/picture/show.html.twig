@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <th>Performance rattachée</th>
-                <td>{{ picture.job.name }}</td>
+                <td>{% if picture.job.name is defined %}{{ picture.job.name }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
