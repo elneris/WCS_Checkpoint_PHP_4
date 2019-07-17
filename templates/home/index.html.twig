@@ -97,66 +97,15 @@
                     </div>
                 </div>
                 <div class="row text-center animate-in" data-anim-type="fade-in-up" id="work-div">
-
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 Dompteur">
+                    {% for picture in pictures %}
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 {% if picture.job.name is defined %}{{ picture.job.name }}{% endif %}">
                         <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/1.jpg">
-
-                                <img src="assets/img/portfolio/1.jpg" class="img-responsive img-rounded" alt=""/>
+                            <a class="fancybox-media" href="{{ asset('assets/img/portfolio/' ~ picture.name) }}">
+                                <img src="{{ asset('assets/img/portfolio/' ~ picture.name) }}" class="img-responsive img-rounded" alt=""/>
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html Dompteur">
-                        <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/2.jpg">
-
-                                <img src="assets/img/portfolio/2.jpg" class="img-responsive img-rounded" alt=""/>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 code volt">
-                        <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/3.jpg">
-
-                                <img src="assets/img/portfolio/3.jpg" class="img-responsive img-rounded" alt=""/>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html script">
-                        <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/4.jpg">
-
-                                <img src="assets/img/portfolio/4.jpg" class="img-responsive img-rounded" alt=""/>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 html code">
-                        <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/5.jpg">
-
-                                <img src="assets/img/portfolio/5.jpg" class="img-responsive img-rounded" alt=""/>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 domp">
-                        <div class="work-wrapper">
-
-                            <a class="fancybox-media" href="assets/img/portfolio/6.jpg">
-
-                                <img src="assets/img/portfolio/6.jpg" class="img-responsive img-rounded" alt=""/>
-                            </a>
-
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
