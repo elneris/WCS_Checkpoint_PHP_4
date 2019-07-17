@@ -17,6 +17,7 @@
             <th>Email</th>
             <th>Nom</th>
             <th>Type de billet</th>
+            <th>Prix du billet</th>
             <th>Etat du ticket</th>
             <th>Confirmer le ticket</th>
         </tr>
@@ -29,7 +30,8 @@
                 <td>{{ ticket.event.date ? ticket.event.date|date('Y-m-d') : '' }}</td>
                 <td>{{ ticket.email }}</td>
                 <td>{{ ticket.name }}</td>
-                <td>{{ ticket.category }}</td>
+                <td>{{ ticket.category.type }}</td>
+                <td>{{ ticket.category.value ~ ' €'}}</td>
                 <td>{{ ticket.valide ? 'Déjà utilisé' : 'Non utilisé' }}</td>
 
                 <td>
