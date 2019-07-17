@@ -18,12 +18,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class TicketController extends AbstractController
 {
     /**
-     * @Route("/", name="ticket_index", methods={"GET"})
+     * @Route("/{page}", requirements={"page" = "\d+"}, name="ticket_index", methods={"GET"})
      */
-    public function index(TicketRepository $ticketRepository): Response
+    public function index(int $page, TicketRepository $ticketRepository): Response
     {
+        $maxByPage = $this->getParameter('max_page');
+        $tickets = $ticketRepository->findAllPaginationAndTrie($page, $maxByPage);
+
+        $pagination = [
+            'page' => $page,
+            'nbPages' => ceil(count($tickets) / $maxByPage),
+            'nameRoute' => 'ticket_index',
+            'paramsRoute' => []
+        ];
         return $this->render('ticket/index.html.twig', [
-            'tickets' => $ticketRepository->findAll(),
+            'tickets' => $tickets,
+            'pagination' => $pagination
         ]);
     }
 
@@ -78,7 +88,7 @@ class TicketController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="ticket_show", methods={"GET"})
+     * @Route("/show/{id}", name="ticket_show", methods={"GET"})
      */
     public function show(Ticket $ticket): Response
     {
