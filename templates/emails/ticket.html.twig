@@ -15,7 +15,8 @@
 <div class="center-div border-danger">
     <h1>Billet Coupe file N°{{ ticket.ticketNumber }} pour : {{ event.city }} le {{ event.getdatestring }}.</h1>
 
-    <strong>CATEGORIE : {{ ticket.category }}</strong>
+    <h2>CATEGORIE : {{ ticket.category.type }}</h2>
+    <h2>PRIX : {{ ticket.category.value }}</h2>
     <br>
     Veuillez présentez ce mail à l'accueil le jour du spectable avec votre moyen de paiment
 </div>

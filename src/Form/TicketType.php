@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Event;
+use App\Entity\Price;
 use App\Entity\Ticket;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -21,13 +22,9 @@ class TicketType extends AbstractType
                 'class' => Event::class,
                 'choice_label' => 'city'
             ])
-            ->add('category', ChoiceType::class,[
-                'choices' => [
-                    '1' => '1',
-                    '2' => '2',
-                    'basic'   => 'basic',
-                    'vip'   => 'vip',
-                ]
+            ->add('category', EntityType::class,[
+                'class' => Price::class,
+                'choice_label' => 'getType'
             ])
         ;
     }

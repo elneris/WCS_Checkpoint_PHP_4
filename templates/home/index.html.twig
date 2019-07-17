@@ -63,14 +63,16 @@
                 <div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
                     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
                         <div class="row db-padding-btm db-attached">
+                            {% for price in prices %}
+
                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                 <div class="light-pricing">
                                     <div class="price">
-                                        20<sup>€</sup>
+                                        {{ price.value }}<sup>€</sup>
                                         <small>par personne</small>
                                     </div>
                                     <div class="type">
-                                        CATEGORY 2
+                                        {{ price.type | capitalize }}
                                     </div>
 
                                     <div class="pricing-footer">
@@ -79,54 +81,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <div class="light-pricing">
-                                    <div class="price">
-                                        30<sup>€</sup>
-                                        <small>par personne</small>
-                                    </div>
-                                    <div class="type">
-                                        CATEGORY 1
-                                    </div>
 
-                                    <div class="pricing-footer">
+                            {% endfor %}
 
-                                        <a href="{{ path('ticket_new') }}" class="btn button-custom btn-custom-one">RESERVER</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <div class="light-pricing">
-                                    <div class="price">
-                                        50<sup>€</sup>
-                                        <small>par personne</small>
-                                    </div>
-                                    <div class="type">
-                                        BASIC
-                                    </div>
-
-                                    <div class="pricing-footer">
-
-                                        <a href="{{ path('ticket_new') }}" class="btn button-custom btn-custom-one">RESERVER</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                                <div class="light-pricing">
-                                    <div class="price">
-                                        80<sup>€</sup>
-                                        <small>par personne</small>
-                                    </div>
-                                    <div class="type">
-                                        VIP
-                                    </div>
-
-                                    <div class="pricing-footer">
-
-                                        <a href="{{ path('ticket_new') }}" class="btn button-custom btn-custom-one">RESERVER</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

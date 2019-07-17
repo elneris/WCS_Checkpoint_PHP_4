@@ -43,9 +43,11 @@ class Ticket
     private $event;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Price", inversedBy="tickets")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
 
     public function getId(): ?int
     {
@@ -112,12 +114,12 @@ class Ticket
         return $this;
     }
 
-    public function getCategory(): ?string
+    public function getCategory(): ?Price
     {
         return $this->category;
     }
 
-    public function setCategory(string $category): self
+    public function setCategory(?Price $category): self
     {
         $this->category = $category;
 
