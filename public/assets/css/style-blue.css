@@ -119,6 +119,7 @@ color: #FFF;
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:hover {
 color: #fff;
+font-size: 3vh;
 font-weight: 900;
 font-family: 'Oswald', sans-serif;
 }
