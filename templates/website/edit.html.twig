@@ -1,0 +1,10 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Website{% endblock %}
+
+{% block body %}
+    <h1>Edition du site</h1>
+
+    {{ include('website/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+{% endblock %}

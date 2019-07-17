@@ -1,0 +1,47 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Website{% endblock %}
+
+{% block body %}
+    <h1>Info du site</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ website.title }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ website.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ website.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ website.instagram }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ website.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ website.phone }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ website.adress }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ website.country }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('website_edit', {'id': website.id}) }}">editer</a>
+
+{% endblock %}
