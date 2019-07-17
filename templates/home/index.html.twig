@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}{{ website.title }}{% endblock %}
 
 {% block body %}
 
@@ -11,13 +11,13 @@
 
 
                         <h1>
-                            Bienvenue sur le Wild Circus
+                            Bienvenue sur le {{ website.title }}
                         </h1>
 
                         <div class="social">
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-facebook "></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn button-custom btn-custom-one"><i class="fa fa-instagram "></i></a>
+                            <a href="{{ website.facebook }}" class="btn button-custom btn-custom-one"><i class="fa fa-facebook "></i></a>
+                            <a href="{{ website.twitter }}" class="btn button-custom btn-custom-one"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ website.instagram }}" class="btn button-custom btn-custom-one"><i class="fa fa-instagram "></i></a>
                         </div>
                         <a href="#services" class=" btn button-custom btn-custom-two">Voir toutes les dates</a>
                     </div>

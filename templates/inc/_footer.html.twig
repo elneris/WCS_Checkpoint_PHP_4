@@ -15,9 +15,9 @@
                 <div class="contact-wrapper">
                     <h3>Nos réseaux sociaux</h3>
                     <div class="social-below">
-                        <a href="#" class="btn button-custom btn-custom-two"> Facebook</a>
-                        <a href="#" class="btn button-custom btn-custom-two"> Twitter</a>
-                        <a href="#" class="btn button-custom btn-custom-two"> Instagram</a>
+                        <a href="{{ website.facebook }}" class="btn button-custom btn-custom-two"> Facebook</a>
+                        <a href="{{ website.twitter }}" class="btn button-custom btn-custom-two"> Twitter</a>
+                        <a href="{{ website.instagram }}" class="btn button-custom btn-custom-two"> Instagram</a>
                     </div>
                 </div>
 
@@ -25,18 +25,18 @@
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="contact-wrapper">
                     <h3>Contact</h3>
-                    <h4><strong>Email : </strong> wildcircus@domain.com </h4>
-                    <h4><strong>Tel. : </strong> +09-88-99-77-55 </h4>
+                    <h4><strong>Email : </strong> {{ website.email }} </h4>
+                    <h4><strong>Tel. : </strong> {{ website.phone }} </h4>
                 </div>
 
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="contact-wrapper">
                     <h3>Address : </h3>
-                    <h4>9 , Allée Serr , </h4>
-                    <h4>France</h4>
+                    <h4>{{ website.adress }}</h4>
+                    <h4>{{ website.country }}</h4>
                     <div class="footer-div">
-                        &copy; 2019 wildcircus | <a href="{{ path('app_login') }}">
+                        &copy; 2019 {{ website.title }} | <a href="{{ path('app_login') }}">
                             administration</a>
                     </div>
                 </div>
