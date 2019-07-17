@@ -36,15 +36,16 @@
                 </div>
                 <div class="row animate-in" data-anim-type="fade-in-up">
                     {% for event in events %}
-
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="services-wrapper">
-                            <a href="{{ path('ticket_new') }}"><i class="ion-calendar"></i>
-                            <h3>{{ event.city }}</h3></a>
-                            <h4>Date : {{ event.getdatestring }}</h4>
-                            <h4>Place restantes : {% if event.place > 0 %}{{ event.place }} {% else %} COMPLET{% endif %}</h4>
-                        </div>
-                    </div>
+                        {% if event.date|date_modify('-1 days') > (date()|date_modify('+120 minutes')) %}
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                <div class="services-wrapper">
+                                    <a href="{{ path('ticket_new') }}"><i class="ion-calendar"></i>
+                                    <h3>{{ event.city }}</h3></a>
+                                    <h4>Date : {{ event.getdatestring }}</h4>
+                                    <h4>Place restantes : {% if event.place > 0 %}{{ event.place }} {% else %} COMPLET{% endif %}</h4>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
