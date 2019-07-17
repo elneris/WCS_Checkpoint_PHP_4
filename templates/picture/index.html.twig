@@ -1,0 +1,37 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}image index{% endblock %}
+
+{% block body %}
+    <h1>Liste des médias</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom du fichier</th>
+                <th>Show rattaché</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for picture in pictures %}
+            <tr>
+                <td>{{ picture.id }}</td>
+                <td>{{ picture.name }}</td>
+                <td>{% if picture.job.name is defined %}{{ picture.job.name }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('picture_show', {'id': picture.id}) }}">Voir</a>
+                    <a href="{{ path('picture_edit', {'id': picture.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun média trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('picture_new') }}">Ajouter un média</a>
+{% endblock %}

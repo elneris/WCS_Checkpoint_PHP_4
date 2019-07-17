@@ -1,0 +1,26 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Media{% endblock %}
+
+{% block body %}
+    <h1>Média</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom du média</th>
+                <td><img src="{{ asset('assets/img/portfolio/'~ picture.name) }}"></td>
+            </tr>
+            <tr>
+                <th>Performance rattachée</th>
+                <td>{{ picture.job.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('picture_index') }}">Retour</a>
+
+    <a class="btn" href="{{ path('picture_edit', {'id': picture.id}) }}">Editer</a>
+
+    {{ include('picture/_delete_form.html.twig') }}
+{% endblock %}
