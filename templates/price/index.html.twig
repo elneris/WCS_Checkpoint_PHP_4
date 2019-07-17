@@ -1,0 +1,35 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Price index{% endblock %}
+
+{% block body %}
+    <h1>Price index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Valeur</th>
+                <th>Type de place</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for price in prices %}
+            <tr>
+                <td>{{ price.value }}</td>
+                <td>{{ price.type }}</td>
+                <td>
+                    <a href="{{ path('price_show', {'id': price.id}) }}">Voir</a>
+                    <a href="{{ path('price_edit', {'id': price.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun prix</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('price_new') }}">Ajouter un prix</a>
+{% endblock %}

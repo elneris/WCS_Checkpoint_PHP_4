@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Prix{% endblock %}
+
+{% block body %}
+    <h1>Editer Prix</h1>
+
+    {{ include('price/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn" href="{{ path('price_index') }}">Retour</a>
+
+    {{ include('price/_delete_form.html.twig') }}
+{% endblock %}

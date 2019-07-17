@@ -1,0 +1,26 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Price{% endblock %}
+
+{% block body %}
+    <h1>Prix</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Valeur</th>
+                <td>{{ price.value }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ price.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('price_index') }}">Retour</a>
+
+    <a class="btn-secondary btn" href="{{ path('price_edit', {'id': price.id}) }}">Editer</a>
+
+    {{ include('price/_delete_form.html.twig') }}
+{% endblock %}

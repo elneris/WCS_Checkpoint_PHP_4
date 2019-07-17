@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}ajout prix{% endblock %}
+
+{% block body %}
+    <h1>Ajout d'un prix</h1>
+
+    {{ include('price/_form.html.twig') }}
+
+    <a class="btn" href="{{ path('price_index') }}">Retour</a>
+{% endblock %}
