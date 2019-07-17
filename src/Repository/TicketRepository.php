@@ -28,11 +28,11 @@ class TicketRepository extends ServiceEntityRepository
         }
 
         if ($filters['date']) {
-            $qb->andWhere('event = :date')
+            $qb->orWhere('event = :date')
                ->setParameter('date', $filters['date']);
         }
 
-        if ($filters['valide']) {
+        if (isset($filters['valide'])) {
             $qb->andWhere('t.valide = :valide')
                 ->setParameter('valide', $filters['valide']);
         }

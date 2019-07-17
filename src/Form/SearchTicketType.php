@@ -30,8 +30,8 @@ class SearchTicketType extends AbstractType
                 'label' => 'valide',
                 'choices' => [
                     'Tout les tickets' => null,
-                    'Oui' => 1,
-                    'Non' => 0
+                    'Oui' => true,
+                    'Non' => false
                 ]
             ])
             ->add('Rechercher', SubmitType::class);
