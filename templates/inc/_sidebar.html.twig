@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="#classe">
+                <a class="nav-link" data-toggle="collapse" href="#event">
                     <i class="material-icons">image</i>
                     <p> Evénements
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse" id="classe">
+                <div class="collapse" id="event">
                     <ul class="nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ path('event_index') }}">
@@ -46,14 +46,14 @@
                 </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="#eleves">
+                <a class="nav-link" data-toggle="collapse" href="#ticket">
                     <i class="material-icons">image</i>
                     <p> Tickets
                         <b class="caret"></b>
                     </p>
                 </a>
 
-                <div class="collapse" id="eleves">
+                <div class="collapse" id="ticket">
                     <ul class="nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ path('ticket_index') }}">
@@ -67,13 +67,13 @@
 
 
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="#question">
+                <a class="nav-link" data-toggle="collapse" href="#artist">
                     <i class="material-icons">image</i>
                     <p> Artistes
                         <b class="caret"></b>
                     </p>
                 </a>
-                <div class="collapse" id="question">
+                <div class="collapse" id="artist">
                     <ul class="nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ path('artist_index') }}">
@@ -135,6 +135,31 @@
                             <a class="nav-link" href="{{ path('website_edit', {'id':1}) }}">
                                 <span class="sidebar-mini"> <i class="fa fa-plus"></i> </span>
                                 <span class="sidebar-normal"> Editer le site </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#show">
+                    <i class="material-icons">image</i>
+                    <p> Shows
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="show">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('job_index') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-eye"></i> </span>
+                                <span class="sidebar-normal"> Voir les spectacles </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('job_new') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-plus"></i> </span>
+                                <span class="sidebar-normal"> Ajouter un show </span>
                             </a>
                         </li>
                     </ul>

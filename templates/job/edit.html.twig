@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edition show{% endblock %}
+
+{% block body %}
+    <h1>Edition show</h1>
+
+    {{ include('job/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn" href="{{ path('job_index') }}">Retour</a>
+
+    {{ include('job/_delete_form.html.twig') }}
+{% endblock %}

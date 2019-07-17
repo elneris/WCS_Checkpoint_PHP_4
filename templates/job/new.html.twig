@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Ajout show{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un show</h1>
+
+    {{ include('job/_form.html.twig') }}
+
+    <a class="btn" href="{{ path('job_index') }}">Retour</a>
+{% endblock %}

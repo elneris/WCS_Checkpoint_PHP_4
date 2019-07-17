@@ -1,0 +1,33 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}show index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Shows</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.name }}</td>
+                <td>
+                    <a href="{{ path('job_show', {'id': job.id}) }}">voir</a>
+                    <a href="{{ path('job_edit', {'id': job.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun show</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('job_new') }}">Ajouter un show</a>
+{% endblock %}

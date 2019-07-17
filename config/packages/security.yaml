@@ -36,6 +36,7 @@ security:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/event, roles: ROLE_ADMIN }
          - { path: ^/artist, roles: ROLE_ADMIN }
+         - { path: ^/job, roles: ROLE_ADMIN }
          - { path: ^/price, roles: ROLE_ADMIN }
          - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/profile, roles: ROLE_USER }
