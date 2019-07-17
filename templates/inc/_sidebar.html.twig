@@ -90,6 +90,31 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#price">
+                    <i class="material-icons">image</i>
+                    <p> Prix des billets
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="price">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('price_index') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-eye"></i> </span>
+                                <span class="sidebar-normal"> Toutes les prix </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('price_new') }}">
+                                <span class="sidebar-mini"> <i class="fa fa-plus"></i> </span>
+                                <span class="sidebar-normal"> Ajouter </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
