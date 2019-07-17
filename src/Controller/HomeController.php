@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\ArtistRepository;
 use App\Repository\EventRepository;
+use App\Repository\JobRepository;
 use App\Repository\PriceRepository;
 use App\Repository\WebsiteRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,10 +19,16 @@ class HomeController extends AbstractController
     /**
      * @Route("/home", name="home")
      */
-    public function index(ArtistRepository $artistRepository, EventRepository $eventRepository, PriceRepository $priceRepository, WebsiteRepository $websiteRepository)
-    {
+    public function index(
+        ArtistRepository $artistRepository,
+        EventRepository $eventRepository,
+        PriceRepository $priceRepository,
+        WebsiteRepository $websiteRepository,
+        JobRepository $jobRepository
+    ) {
         $prices = $priceRepository->findby([], ['value' => 'ASC']);
         $artists = $artistRepository->findall();
+        $shows = $jobRepository->findall();
         $website = $websiteRepository->findOneBy(['id' => 1]);
         $events = $eventRepository->findBy([], ['date' => 'ASC']);
         return $this->render('home/index.html.twig', [
@@ -29,6 +36,7 @@ class HomeController extends AbstractController
             'events' => $events,
             'prices' => $prices,
             'website' => $website,
+            'shows' => $shows,
         ]);
     }
 }
