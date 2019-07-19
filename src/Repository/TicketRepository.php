@@ -43,7 +43,6 @@ class TicketRepository extends ServiceEntityRepository
             $qb->orHaving('t.ticketNumber LIKE :val')
                ->orHaving('t.email LIKE :val')
                ->orHaving('t.name LIKE :val')
-               ->orHaving('t.category LIKE :val')
                ->setParameter('val', '%' . $filters['search'] . '%');
         }
 

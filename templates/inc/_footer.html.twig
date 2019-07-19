@@ -15,9 +15,10 @@
                 <div class="contact-wrapper">
                     <h3>Nos réseaux sociaux</h3>
                     <div class="social-below">
-                        <a href="{{ website.facebook }}" class="btn button-custom btn-custom-two"> Facebook</a>
-                        <a href="{{ website.twitter }}" class="btn button-custom btn-custom-two"> Twitter</a>
-                        <a href="{{ website.instagram }}" class="btn button-custom btn-custom-two"> Instagram</a>
+                        {% if website.facebook is null and website.twitter is null and website.instagram is null %}Nous n'avons pas encore de réseaux sociaux{% endif %}
+                        {% if website.facebook is not null %}<a href="{{ website.facebook }}" class="btn button-custom btn-custom-one" target="_blank">Facebook</a>{% endif %}
+                        {% if website.twitter is not null %}<a href="{{ website.twitter }}" class="btn button-custom btn-custom-one" target="_blank">Twitter</a>{% endif %}
+                        {% if website.instagram is not null %}<a href="{{ website.instagram }}" class="btn button-custom btn-custom-one" target="_blank">Instagram</a>{% endif %}
                     </div>
                 </div>
 
